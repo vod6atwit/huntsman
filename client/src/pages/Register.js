@@ -11,9 +11,10 @@ const initialState = {
 };
 
 const Register = () => {
+  // values = initialState object
   const [values, setValues] = useState(initialState);
   // global state amd useNavigate
-  const { isLoading, showAlert } = useAppContext();
+  const { isLoading, showAlert, displayAlert } = useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -21,12 +22,19 @@ const Register = () => {
 
   // fire everytime we change the value in the state
   const handleChange = e => {
-    console.log(e.target);
+    // get the value of 'name' attribute from the FormRow,
+    // then set that value in initialState = value that we type in of the target
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, email, password, isMember } = values;
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert();
+      return;
+    }
+    console.log(values);
   };
 
   return (
@@ -50,6 +58,7 @@ const Register = () => {
         {/* email input */}
         <FormRow
           name="email"
+          // set the value always the same as name in initialState
           value={values.email}
           type="email"
           handleChange={handleChange}
