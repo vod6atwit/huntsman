@@ -3,17 +3,29 @@ const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
 
+// make sure to use .js extension to be able to use module for ESModule
+// databse
 import connectDB from './db/connect.js';
 
-// make sure to use .js extension to be able to use module for ESModule
+//router
+import authRouter from './routes/authRoutes.js';
+import jobsRouter from './routes/jobsRoutes.js';
+
 // middleware
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
+// body parser, reading data from body(incoming request) into req.body(in controller)
+app.use(express.json());
+
 app.get('/', (req, res) => {
-  throw new Error('error');
+  // throw new Error('error');
   res.send('welcome');
 });
+
+// ROUTES
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/jobs', jobsRouter);
 
 // only run this line if app not find any routes from above
 app.use(notFoundMiddleware);
