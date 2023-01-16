@@ -2,7 +2,7 @@ import { StatusCodes } from 'http-status-codes';
 
 // include err and next parameter if want to catch throw errors in the routes
 const errorHandlerMiddleware = (err, req, res, next) => {
-  // console.log(err.message);
+  console.log(err);
 
   // default error handler
   const defaultError = {

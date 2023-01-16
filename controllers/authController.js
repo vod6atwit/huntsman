@@ -20,10 +20,23 @@ const register = async (req, res) => {
   }
 
   // generate new user in mongoDB
+  // '.create' method won't work for 'select' queries in schema
   const user = await User.create({ name, email, password });
 
-  // send user back to frontend
-  res.status(StatusCodes.CREATED).json({ user });
+  // to be able to communicate between frontend and server
+  // requests from frontend need to have token to be able to complete the requests
+  const token = user.createJWT();
+
+  // send user infos (not include password) and token back to frontend
+  res.status(StatusCodes.CREATED).json({
+    user: {
+      email: user.email,
+      name: user.name,
+      location: user.location,
+      lastname: user.lastName,
+    },
+    token,
+  });
 };
 
 const login = async (req, res) => {
