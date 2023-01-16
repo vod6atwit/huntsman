@@ -36,6 +36,7 @@ const register = async (req, res) => {
       lastname: user.lastName,
     },
     token,
+    location: user.location,
   });
 };
 
