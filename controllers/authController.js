@@ -41,8 +41,43 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  res.send('login user');
+  const { email, password } = req.body;
+
+  // missing required fields
+  if (!email || !password) {
+    throw new CustomAPIError(
+      'Please provide all values',
+      StatusCodes.BAD_REQUEST
+    );
+  }
+
+  const user = await User.findOne({ email }).select('+password');
+  if (!user) {
+    throw new CustomAPIError('Invalid credentials', StatusCodes.UNAUTHORIZED);
+  }
+
+  const isPasswordCorrect = await user.comparePassword(password);
+  if (!isPasswordCorrect) {
+    throw new CustomAPIError('Invalid credentials', StatusCodes.UNAUTHORIZED);
+  }
+
+  // to be able to communicate between frontend and server
+  // requests from frontend need to have token to be able to complete the requests
+  const token = await user.createJWT();
+
+  // send user infos (not include password) and token back to frontend
+  res.status(StatusCodes.OK).json({
+    user: {
+      email: user.email,
+      name: user.name,
+      location: user.location,
+      lastname: user.lastName,
+    },
+    token,
+    location: user.location,
+  });
 };
+
 const updateUser = async (req, res) => {
   res.send('update User');
 };

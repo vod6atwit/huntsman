@@ -1,4 +1,5 @@
 import 'express-async-errors';
+import morgan from 'morgan';
 import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
@@ -15,6 +16,10 @@ import jobsRouter from './routes/jobsRoutes.js';
 // middleware
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'));
+}
 
 // body parser, reading data from body(incoming request) into req.body(in controller)
 app.use(express.json());
