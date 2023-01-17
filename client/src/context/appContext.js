@@ -14,6 +14,8 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
+  TOGGLE_SIDEBAR,
+  LOGOUT_USER,
 } from './actions';
 
 // reload data from local storage if exists
@@ -31,6 +33,7 @@ const initialState = {
   token: token ? token : null,
   userLocation: location || '',
   jobLocation: location || '',
+  showSidebar: false,
 };
 
 const AppContext = React.createContext();
@@ -151,9 +154,20 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const toggleSidebar = () => {
+    dispatch({ type: TOGGLE_SIDEBAR });
+  };
+
+  const logoutUser = () => {
+    dispatch({ type: LOGOUT_USER });
+    removeUserFromLocalStorage({ user, token, location });
+  };
+
   return (
     // All the children (App) will able to use VAlUE passed through
-    <AppContext.Provider value={{ ...state, displayAlert, setupUser }}>
+    <AppContext.Provider
+      value={{ ...state, displayAlert, setupUser, toggleSidebar, logoutUser }}
+    >
       {children}
     </AppContext.Provider>
   );
