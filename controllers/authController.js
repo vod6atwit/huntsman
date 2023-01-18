@@ -33,7 +33,7 @@ const register = async (req, res) => {
       email: user.email,
       name: user.name,
       location: user.location,
-      lastname: user.lastName,
+      lastName: user.lastName,
     },
     token,
     location: user.location,
@@ -71,7 +71,7 @@ const login = async (req, res) => {
       email: user.email,
       name: user.name,
       location: user.location,
-      lastname: user.lastName,
+      lastName: user.lastName,
     },
     token,
     location: user.location,
@@ -79,8 +79,31 @@ const login = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  console.log(req.user);
-  res.send('update User');
+  const { email, name, lastName, location } = req.body;
+  if (!email || !name || !location || !lastName) {
+    throw new CustomAPIError(
+      'Please provide all values',
+      StatusCodes.BAD_REQUEST
+    );
+  }
+
+  // '.findone' works for 'select: false' in user Schema
+  const user = await User.findOne({ _id: req.user.userId });
+
+  user.email = email;
+  user.name = name;
+  user.lastName = lastName;
+  user.location = location;
+
+  await user.save();
+
+  const token = user.createJWT();
+
+  res.status(StatusCodes.OK).json({
+    user,
+    token,
+    location: user.location,
+  });
 };
 
 export { register, login, updateUser };
