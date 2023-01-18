@@ -163,10 +163,21 @@ const AppProvider = ({ children }) => {
     removeUserFromLocalStorage({ user, token, location });
   };
 
+  const updateUser = async currentUser => {
+    console.log(currentUser);
+  };
+
   return (
     // All the children (App) will able to use VAlUE passed through
     <AppContext.Provider
-      value={{ ...state, displayAlert, setupUser, toggleSidebar, logoutUser }}
+      value={{
+        ...state,
+        displayAlert,
+        setupUser,
+        toggleSidebar,
+        logoutUser,
+        updateUser,
+      }}
     >
       {children}
     </AppContext.Provider>
