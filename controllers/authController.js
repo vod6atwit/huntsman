@@ -63,6 +63,7 @@ const login = async (req, res) => {
 
   // to be able to communicate between frontend and server
   // requests from frontend need to have token to be able to complete the requests
+  // created new token every time user is logged in ( prevent expired token )
   const token = await user.createJWT();
 
   // send user infos (not include password) and token back to frontend
