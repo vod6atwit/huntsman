@@ -28,6 +28,7 @@ const location = localStorage.getItem('location');
 
 // global state values
 const initialState = {
+  // for auth && user
   isLoading: false,
   showAlert: false,
   alertText: '',
@@ -35,8 +36,18 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   token: token ? token : null,
   userLocation: location || '',
-  jobLocation: location || '',
   showSidebar: false,
+
+  // for job
+  isEditing: false,
+  editJobId: '',
+  position: '',
+  company: '',
+  jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
+  jobType: 'internship',
+  statusOptions: ['interview', 'declined', 'pending'],
+  status: 'pending',
+  jobLocation: location || '',
 };
 
 const AppContext = React.createContext();

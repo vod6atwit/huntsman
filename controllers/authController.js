@@ -89,6 +89,7 @@ const updateUser = async (req, res) => {
   }
 
   // '.findone' works for 'select: false' in user Schema
+  // req.user from auth.js
   const user = await User.findOne({ _id: req.user.userId });
 
   user.email = email;
