@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import { FormRow, Alert, FormRowSelect } from '../../components';
 import { useAppContext } from '../../context/appContext';
@@ -17,7 +18,6 @@ const EditJob = () => {
     statusOptions,
     handleChange,
     clearValues,
-    createJob,
     editJob,
   } = useAppContext();
 
@@ -33,8 +33,6 @@ const EditJob = () => {
       editJob();
       return;
     }
-
-    createJob();
   };
 
   const handleJobInput = e => {
@@ -96,18 +94,18 @@ const EditJob = () => {
               onClick={handleSubmit}
               disabled={isLoading}
             >
-              submit
+              Done
             </button>
 
-            <button
+            <Link
+              to="/all-jobs"
               className="btn btn-block clear-btn"
-              onClick={e => {
-                e.preventDefault();
+              onClick={() => {
                 clearValues();
               }}
             >
-              clear
-            </button>
+              cancel
+            </Link>
           </div>
         </div>
       </form>

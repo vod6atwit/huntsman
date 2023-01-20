@@ -5,7 +5,6 @@ import { useAppContext } from '../../context/appContext';
 const AddJob = () => {
   const {
     isLoading,
-    // isEditing,
     showAlert,
     displayAlert,
     position,
@@ -28,13 +27,7 @@ const AddJob = () => {
       return;
     }
 
-    // if (isEditing) {
-    //   return;
-    // }
-
     createJob();
-
-    // console.log('create job');
   };
 
   const handleJobInput = e => {
