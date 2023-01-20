@@ -26,6 +26,7 @@ import {
   CREATE_JOB_ERROR,
   GET_JOBS_BEGIN,
   GET_JOBS_SUCCESS,
+  SET_EDIT_JOB,
 } from './actions';
 
 // reload data from local storage if exists
@@ -232,6 +233,8 @@ const AppProvider = ({ children }) => {
       const { data } = await authFetch.get(url);
 
       const { jobs, totalJobs, numOfPages } = data;
+
+      console.log(jobs);
       dispatch({
         type: GET_JOBS_SUCCESS,
         payload: {
@@ -247,7 +250,11 @@ const AppProvider = ({ children }) => {
   };
 
   const setEditJob = id => {
-    console.log(`set edit job ${id}`);
+    dispatch({ type: SET_EDIT_JOB, payload: { id } });
+  };
+
+  const editJob = () => {
+    console.log('edit job');
   };
 
   const deleteJob = id => {
@@ -270,6 +277,7 @@ const AppProvider = ({ children }) => {
         getJobs,
         setEditJob,
         deleteJob,
+        editJob,
       }}
     >
       {children}

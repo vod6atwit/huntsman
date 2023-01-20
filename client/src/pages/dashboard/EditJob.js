@@ -2,10 +2,10 @@ import Wrapper from '../../assets/wrappers/DashboardFormPage';
 import { FormRow, Alert, FormRowSelect } from '../../components';
 import { useAppContext } from '../../context/appContext';
 
-const AddJob = () => {
+const EditJob = () => {
   const {
     isLoading,
-    // isEditing,
+    isEditing,
     showAlert,
     displayAlert,
     position,
@@ -18,6 +18,7 @@ const AddJob = () => {
     handleChange,
     clearValues,
     createJob,
+    editJob,
   } = useAppContext();
 
   const handleSubmit = e => {
@@ -28,13 +29,12 @@ const AddJob = () => {
       return;
     }
 
-    // if (isEditing) {
-    //   return;
-    // }
+    if (isEditing) {
+      editJob();
+      return;
+    }
 
     createJob();
-
-    // console.log('create job');
   };
 
   const handleJobInput = e => {
@@ -49,7 +49,7 @@ const AddJob = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h3>Add Job</h3>
+        <h3>Edit Job</h3>
         {showAlert && <Alert />}
 
         <div className="form-center">
@@ -115,4 +115,4 @@ const AddJob = () => {
   );
 };
 
-export default AddJob;
+export default EditJob;

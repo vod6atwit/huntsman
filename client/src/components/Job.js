@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/Job';
 import JobInfo from './JobInfo';
+import { useState } from 'react';
 
 const Job = ({
   _id,
@@ -39,7 +40,7 @@ const Job = ({
 
         <footer className="actions">
           <Link
-            to="/add-jobs"
+            to="/edit-job"
             className="btn edit-btn"
             onClick={() => {
               setEditJob(_id);
