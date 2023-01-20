@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Wrapper = styled.article`
   background: var(--white);
@@ -42,16 +42,16 @@ const Wrapper = styled.article`
     }
   }
   .pending {
-    background: #fcefc7;
-    color: #e9b949;
+    background: #643bae;
+    color: #f1ecf9;
   }
   .interview {
-    background: #e0e8f9;
-    color: #647acb;
+    background: #177a4c;
+    color: #e8f3ee;
   }
   .declined {
-    color: #d66a6a;
-    background: #ffeeee;
+    background: #c6303e;
+    color: #fcebec;
   }
   .content {
     padding: 1rem 1.5rem;
@@ -100,6 +100,6 @@ const Wrapper = styled.article`
   &:hover .actions {
     visibility: visible;
   }
-`
+`;
 
-export default Wrapper
+export default Wrapper;
