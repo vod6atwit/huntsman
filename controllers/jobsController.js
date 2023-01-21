@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import { CustomAPIError } from '../errors/index.js';
 import checkPermissions from '../utils/checkPermissions.js';
 import mongoose from 'mongoose';
+import moment from 'moment';
 
 const createJob = async (req, res) => {
   const { position, company } = req.body;
@@ -91,7 +92,36 @@ const showStats = async (req, res) => {
     declined: stats.declined || 0,
   };
 
-  let monthlyApplicationStats = [];
+  let monthlyApplicationStats = await Job.aggregate([
+    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+    {
+      $group: {
+        _id: { year: { $year: '$createdAt' }, month: { $month: '$createdAt' } },
+        count: { $sum: 1 },
+      },
+    },
+    // get latest 6 months
+    { $sort: { '_id.year': -1, '_id.month': -1 } },
+    { $limit: 6 },
+  ]);
+
+  monthlyApplicationStats = monthlyApplicationStats
+    .map(item => {
+      const {
+        _id: { year, month },
+        count,
+      } = item;
+
+      const date = moment()
+        // moment count from 0-11 (jan - dec)
+        .month(month - 1)
+        .year(year)
+        .format('MMMM Y');
+
+      return { date, count };
+    })
+    // for displaying from oldest to newest month
+    .reverse();
 
   res.status(StatusCodes.OK).json({ defaultStats, monthlyApplicationStats });
 };
