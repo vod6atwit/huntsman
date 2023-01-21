@@ -1,0 +1,677 @@
+[
+  {
+    "company": "McKenzie-Gutmann",
+    "position": "Social Worker",
+    "jobLocation": "Huaikan",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2022-06-12T13:54:07Z"
+  },
+  {
+    "company": "Ferry, Hoppe and Stanton",
+    "position": "Biostatistician III",
+    "jobLocation": "Yeysk",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2022-06-25T07:02:48Z"
+  },
+  {
+    "company": "Berge Group",
+    "position": "Software Consultant",
+    "jobLocation": "Bauru",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-05-24T20:26:45Z"
+  },
+  {
+    "company": "McGlynn-Jacobs",
+    "position": "Financial Advisor",
+    "jobLocation": "Uchimaru",
+    "jobType": "internship",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-10-15T18:42:21Z"
+  },
+  {
+    "company": "Feil and Sons",
+    "position": "Senior Developer",
+    "jobLocation": "Veghel",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-03-22T14:24:29Z"
+  },
+  {
+    "company": "Emmerich-Gerhold",
+    "position": "Senior Developer",
+    "jobLocation": "Nový Hrozenkov",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-07-29T06:07:51Z"
+  },
+  {
+    "company": "Braun-Wintheiser",
+    "position": "Structural Engineer",
+    "jobLocation": "Bogolyubovo",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-06-06T18:37:59Z"
+  },
+  {
+    "company": "Rutherford Group",
+    "position": "Biostatistician I",
+    "jobLocation": "Methóni",
+    "jobType": "remote",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-07-24T22:11:13Z"
+  },
+  {
+    "company": "O'Reilly-McGlynn",
+    "position": "Technical Writer",
+    "jobLocation": "Timbuktu",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-01-09T22:17:27Z"
+  },
+  {
+    "company": "Hane, Stracke and Hessel",
+    "position": "Graphic Designer",
+    "jobLocation": "Bojonglarang",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-09-05T02:35:01Z"
+  },
+  {
+    "company": "Mayer, Zieme and Monahan",
+    "position": "Research Associate",
+    "jobLocation": "Ustrzyki Dolne",
+    "jobType": "full-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-06-14T04:02:27Z"
+  },
+  {
+    "company": "Conroy Inc",
+    "position": "Paralegal",
+    "jobLocation": "Meudon",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-09-17T11:07:59Z"
+  },
+  {
+    "company": "Kunze Group",
+    "position": "Mechanical Systems Engineer",
+    "jobLocation": "Júlio de Castilhos",
+    "jobType": "full-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2022-03-23T18:04:53Z"
+  },
+  {
+    "company": "Stokes Inc",
+    "position": "Nurse Practicioner",
+    "jobLocation": "Tiberias",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-08-30T11:36:37Z"
+  },
+  {
+    "company": "Klein, Schinner and Moen",
+    "position": "Product Engineer",
+    "jobLocation": "Wilmington",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-05-13T09:34:24Z"
+  },
+  {
+    "company": "Koss-Schinner",
+    "position": "Assistant Media Planner",
+    "jobLocation": "Cabrobó",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-03-14T06:37:44Z"
+  },
+  {
+    "company": "Bradtke, Osinski and Cassin",
+    "position": "VP Sales",
+    "jobLocation": "Boa Esperança",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-09-22T18:14:29Z"
+  },
+  {
+    "company": "Brakus-Blick",
+    "position": "Product Engineer",
+    "jobLocation": "Xinsheng",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-08-04T12:36:49Z"
+  },
+  {
+    "company": "Gusikowski-Kemmer",
+    "position": "Chemical Engineer",
+    "jobLocation": "Canto",
+    "jobType": "full-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-10-31T05:08:12Z"
+  },
+  {
+    "company": "Pfannerstill, Raynor and Bernhard",
+    "position": "Legal Assistant",
+    "jobLocation": "Fagersta",
+    "jobType": "full-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2022-02-13T02:34:34Z"
+  },
+  {
+    "company": "Olson-Crona",
+    "position": "Professor",
+    "jobLocation": "Camabatela",
+    "jobType": "remote",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-11-12T20:18:49Z"
+  },
+  {
+    "company": "Herman-Crona",
+    "position": "Help Desk Technician",
+    "jobLocation": "Rosario del Ingre",
+    "jobType": "internship",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-01-30T13:44:27Z"
+  },
+  {
+    "company": "Schneider-Roberts",
+    "position": "Human Resources Assistant I",
+    "jobLocation": "Gort",
+    "jobType": "internship",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-05-02T20:36:24Z"
+  },
+  {
+    "company": "Ward LLC",
+    "position": "Administrative Assistant III",
+    "jobLocation": "Shaxi",
+    "jobType": "internship",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-12-31T20:05:52Z"
+  },
+  {
+    "company": "Turner-Wyman",
+    "position": "Registered Nurse",
+    "jobLocation": "San Isidro",
+    "jobType": "remote",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-07-28T07:53:52Z"
+  },
+  {
+    "company": "Rowe, Hansen and Gleason",
+    "position": "Paralegal",
+    "jobLocation": "Diaoluoshan",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-07-03T17:23:21Z"
+  },
+  {
+    "company": "Bartell, Miller and Kemmer",
+    "position": "Compensation Analyst",
+    "jobLocation": "Muḩambal",
+    "jobType": "internship",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-07-14T16:43:49Z"
+  },
+  {
+    "company": "Kreiger-Zieme",
+    "position": "Internal Auditor",
+    "jobLocation": "Chang’an",
+    "jobType": "full-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-06-15T07:36:29Z"
+  },
+  {
+    "company": "Hyatt and Sons",
+    "position": "Software Consultant",
+    "jobLocation": "Nianyushan",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-08-01T21:42:39Z"
+  },
+  {
+    "company": "Huels, Hodkiewicz and Johnston",
+    "position": "Graphic Designer",
+    "jobLocation": "Ikedachō",
+    "jobType": "internship",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-09-23T13:38:01Z"
+  },
+  {
+    "company": "Jast-Sanford",
+    "position": "Systems Administrator III",
+    "jobLocation": "Vargem Grande Paulista",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-03-12T15:37:33Z"
+  },
+  {
+    "company": "Hansen, Koch and Mertz",
+    "position": "Media Manager I",
+    "jobLocation": "Bor",
+    "jobType": "internship",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-01-26T19:25:10Z"
+  },
+  {
+    "company": "Dickens Group",
+    "position": "Environmental Specialist",
+    "jobLocation": "Concepción",
+    "jobType": "remote",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-12-22T17:05:45Z"
+  },
+  {
+    "company": "Treutel-Wiza",
+    "position": "Computer Systems Analyst I",
+    "jobLocation": "Lahar",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-09-27T21:10:05Z"
+  },
+  {
+    "company": "Greenfelder, Kuphal and Lemke",
+    "position": "Junior Executive",
+    "jobLocation": "Zainsk",
+    "jobType": "remote",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-09-29T15:37:30Z"
+  },
+  {
+    "company": "Bernhard and Sons",
+    "position": "Compensation Analyst",
+    "jobLocation": "Tala",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-07-19T16:50:32Z"
+  },
+  {
+    "company": "Kling, Herman and Sauer",
+    "position": "Actuary",
+    "jobLocation": "Jaroměř",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-10-21T05:40:55Z"
+  },
+  {
+    "company": "Kulas-Harber",
+    "position": "Assistant Media Planner",
+    "jobLocation": "Limushan",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-08-01T04:59:25Z"
+  },
+  {
+    "company": "Adams LLC",
+    "position": "Accounting Assistant II",
+    "jobLocation": "Carcavelos",
+    "jobType": "full-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-09-09T21:00:10Z"
+  },
+  {
+    "company": "Rau, Hane and Stroman",
+    "position": "Legal Assistant",
+    "jobLocation": "Bailu",
+    "jobType": "internship",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-02-14T19:11:33Z"
+  },
+  {
+    "company": "Bogan LLC",
+    "position": "Junior Executive",
+    "jobLocation": "Riofrío",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-06-15T18:46:23Z"
+  },
+  {
+    "company": "Crona Inc",
+    "position": "Software Consultant",
+    "jobLocation": "Jinchang",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-04-11T03:30:06Z"
+  },
+  {
+    "company": "Deckow, Hayes and Kuphal",
+    "position": "Analyst Programmer",
+    "jobLocation": "Rychnov nad Kněžnou",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-07-10T19:34:57Z"
+  },
+  {
+    "company": "Collins-Beahan",
+    "position": "Technical Writer",
+    "jobLocation": "Ticaco",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-03-26T05:24:59Z"
+  },
+  {
+    "company": "Williamson, Moore and O'Kon",
+    "position": "Senior Financial Analyst",
+    "jobLocation": "Qingshan",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-03-11T18:08:29Z"
+  },
+  {
+    "company": "Okuneva Group",
+    "position": "Safety Technician I",
+    "jobLocation": "Xidoupu",
+    "jobType": "remote",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-11-29T00:39:06Z"
+  },
+  {
+    "company": "Parker, Schaden and Skiles",
+    "position": "Financial Advisor",
+    "jobLocation": "Isdalstø",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-08-27T13:01:52Z"
+  },
+  {
+    "company": "Marks, Bergstrom and Lehner",
+    "position": "Social Worker",
+    "jobLocation": "Cuijiamatou",
+    "jobType": "full-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-09-18T04:41:38Z"
+  },
+  {
+    "company": "Kub-Schimmel",
+    "position": "Safety Technician I",
+    "jobLocation": "Villa Yapacaní",
+    "jobType": "internship",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-05-25T17:16:23Z"
+  },
+  {
+    "company": "Wiegand Group",
+    "position": "Developer I",
+    "jobLocation": "Insrom",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-05-28T14:31:35Z"
+  },
+  {
+    "company": "Spencer-Carroll",
+    "position": "Operator",
+    "jobLocation": "Jiufeng",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-02-01T15:06:49Z"
+  },
+  {
+    "company": "Hilll-Leuschke",
+    "position": "GIS Technical Architect",
+    "jobLocation": "Lashio",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-10-10T01:29:21Z"
+  },
+  {
+    "company": "Abbott Inc",
+    "position": "Product Engineer",
+    "jobLocation": "Banyo",
+    "jobType": "remote",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-01-28T00:17:27Z"
+  },
+  {
+    "company": "Yost-Cronin",
+    "position": "Human Resources Assistant III",
+    "jobLocation": "Romblon",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-01-02T07:11:11Z"
+  },
+  {
+    "company": "Rempel Inc",
+    "position": "Assistant Manager",
+    "jobLocation": "Cruz de los Milagros",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-03-18T05:27:01Z"
+  },
+  {
+    "company": "Cormier-Daniel",
+    "position": "Marketing Assistant",
+    "jobLocation": "Chenjiatan",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-07-31T11:20:58Z"
+  },
+  {
+    "company": "Larkin, Bins and Kuhlman",
+    "position": "Tax Accountant",
+    "jobLocation": "Xindu",
+    "jobType": "internship",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-06-22T13:04:51Z"
+  },
+  {
+    "company": "Lockman, Dickinson and Ziemann",
+    "position": "Director of Sales",
+    "jobLocation": "Gąbin",
+    "jobType": "part-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-05-03T10:25:23Z"
+  },
+  {
+    "company": "Block-Cummings",
+    "position": "Financial Analyst",
+    "jobLocation": "Łęki",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-05-23T11:11:54Z"
+  },
+  {
+    "company": "Sporer, Volkman and Wiegand",
+    "position": "Human Resources Assistant I",
+    "jobLocation": "Luján",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-09-03T08:54:49Z"
+  },
+  {
+    "company": "Daniel, Little and Osinski",
+    "position": "GIS Technical Architect",
+    "jobLocation": "Zvečan",
+    "jobType": "internship",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-08-07T07:22:48Z"
+  },
+  {
+    "company": "McGlynn, Dickens and Watsica",
+    "position": "Web Developer III",
+    "jobLocation": "Lagoa do Itaenga",
+    "jobType": "remote",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-06-17T14:36:21Z"
+  },
+  {
+    "company": "Rippin-Jenkins",
+    "position": "Occupational Therapist",
+    "jobLocation": "Katur",
+    "jobType": "full-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2026-08-17T00:44:59Z"
+  },
+  {
+    "company": "Johnston-Ratke",
+    "position": "Budget/Accounting Analyst II",
+    "jobLocation": "Fengle",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2028-07-04T03:22:19Z"
+  },
+  {
+    "company": "Haley, Howell and Glover",
+    "position": "Marketing Assistant",
+    "jobLocation": "Şūrān",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-04-07T08:49:31Z"
+  },
+  {
+    "company": "Kessler-Gusikowski",
+    "position": "Staff Accountant I",
+    "jobLocation": "Bunga Mas",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-02-02T11:02:43Z"
+  },
+  {
+    "company": "Sipes and Sons",
+    "position": "Speech Pathologist",
+    "jobLocation": "Pittsburgh",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-03-06T02:33:05Z"
+  },
+  {
+    "company": "Boyer-Will",
+    "position": "Clinical Specialist",
+    "jobLocation": "Konza",
+    "jobType": "internship",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2022-08-23T16:48:27Z"
+  },
+  {
+    "company": "Shanahan-Hamill",
+    "position": "Programmer Analyst IV",
+    "jobLocation": "Čortanovci",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2025-07-08T06:11:12Z"
+  },
+  {
+    "company": "Weimann and Sons",
+    "position": "Quality Engineer",
+    "jobLocation": "Lancai",
+    "jobType": "full-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-12-10T02:22:22Z"
+  },
+  {
+    "company": "Heaney Group",
+    "position": "Database Administrator I",
+    "jobLocation": "Itajubá",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2024-01-03T07:49:05Z"
+  },
+  {
+    "company": "Towne Inc",
+    "position": "VP Product Management",
+    "jobLocation": "Heping",
+    "jobType": "remote",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2021-09-20T00:45:18Z"
+  },
+  {
+    "company": "Larkin, Schumm and Renner",
+    "position": "Senior Editor",
+    "jobLocation": "Krasnoye",
+    "jobType": "part-time",
+    "status": "interview",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-02-15T22:24:07Z"
+  },
+  {
+    "company": "Zieme, Champlin and Dare",
+    "position": "Administrative Assistant III",
+    "jobLocation": "Shanglu",
+    "jobType": "full-time",
+    "status": "pending",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2027-07-30T13:16:47Z"
+  },
+  {
+    "company": "Keebler and Sons",
+    "position": "Director of Sales",
+    "jobLocation": "Xixiang",
+    "jobType": "part-time",
+    "status": "declined",
+    "createdBy": "63c5aa8270616bd1e11cfc70",
+    "createdAt": "2023-12-22T03:09:34Z"
+  }
+]
