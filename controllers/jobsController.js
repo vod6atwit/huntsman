@@ -21,7 +21,47 @@ const createJob = async (req, res) => {
 };
 
 const getAllJobs = async (req, res) => {
-  const jobs = await Job.find({ createdBy: req.user.userId });
+  // for searching
+
+  // TODO adding search by company name, position, job Location
+  const { status, jobType, sort, search } = req.query;
+
+  const queryObject = {
+    createdBy: req.user.userId,
+  };
+
+  // add in query object based on condition
+
+  // /jobs?status='status'
+  if (status !== 'all') {
+    queryObject.status = status;
+  }
+
+  // /jobs?jobType='jobType'
+  if (jobType !== 'all') {
+    queryObject.jobType = jobType;
+  }
+
+  // /jobs?search='search'
+  if (search) {
+    queryObject.position = { $regex: search, $options: 'i' };
+  }
+
+  // get the result based on the query object
+  let result = Job.find(queryObject);
+
+  // sort conditions
+  if (sort === 'latest') {
+    // descending order
+    result = result.sort('-createdAt');
+  }
+
+  if (sort === 'oldest') {
+    // ascending order
+    result = result.sort('createdAt');
+  }
+
+  const jobs = await result;
 
   res
     .status(StatusCodes.OK)
@@ -29,6 +69,7 @@ const getAllJobs = async (req, res) => {
 };
 
 const editJob = async (req, res) => {
+  // jobId is al alias of id
   const { id: jobId } = req.params;
   const { company, position } = req.body;
 
