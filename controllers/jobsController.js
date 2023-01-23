@@ -23,8 +23,7 @@ const createJob = async (req, res) => {
 const getAllJobs = async (req, res) => {
   // for searching
 
-  // TODO adding search by company name, position, job Location
-  const { status, jobType, sort, search } = req.query;
+  const { status, jobType, sort, search, searchBy } = req.query;
 
   const queryObject = {
     createdBy: req.user.userId,
@@ -33,18 +32,26 @@ const getAllJobs = async (req, res) => {
   // add in query object based on condition
 
   // /jobs?status='status'
-  if (status !== 'all') {
+  if (status && status !== 'all') {
     queryObject.status = status;
   }
 
   // /jobs?jobType='jobType'
-  if (jobType !== 'all') {
+  if (jobType && jobType !== 'all') {
     queryObject.jobType = jobType;
   }
 
-  // /jobs?search='search'
+  // /jobs?search='search'&searchBy='searchBy'
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    if (searchBy === 'position') {
+      queryObject.position = { $regex: search, $options: 'i' };
+    }
+    if (searchBy === 'company') {
+      queryObject.company = { $regex: search, $options: 'i' };
+    }
+    if (searchBy === 'location') {
+      queryObject.jobLocation = { $regex: search, $options: 'i' };
+    }
   }
 
   // get the result based on the query object
@@ -59,6 +66,14 @@ const getAllJobs = async (req, res) => {
   if (sort === 'oldest') {
     // ascending order
     result = result.sort('createdAt');
+  }
+
+  if (sort === 'position name a-z') {
+    result = result.sort('position');
+  }
+
+  if (sort === 'position name z-a') {
+    result = result.sort('-position');
   }
 
   const jobs = await result;

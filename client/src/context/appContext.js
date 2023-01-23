@@ -33,6 +33,7 @@ import {
   EDIT_JOB_ERROR,
   SHOW_STATS_BEGIN,
   SHOW_STATS_SUCCESS,
+  CLEAR_FILTERS,
 } from './actions';
 
 // reload data from local storage if exists
@@ -70,6 +71,15 @@ const initialState = {
   // for stats
   stats: {},
   monthlyApplicationStats: [],
+
+  // for search
+  search: '',
+  searchStatus: 'all',
+  searchType: 'all',
+  sort: 'latest',
+  sortOptions: ['latest', 'oldest', 'position name a-z', 'position name z-a'],
+  searchBy: 'position',
+  searchByOptions: ['position', 'company', 'location'],
 };
 
 const AppContext = React.createContext();
@@ -236,7 +246,14 @@ const AppProvider = ({ children }) => {
   };
 
   const getJobs = async () => {
-    let url = `/jobs`;
+    const { search, searchStatus, searchType, sort, searchBy } = state;
+
+    // changing url depends on type of search
+    let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}&searchBy=${searchBy}`;
+
+    if (search) {
+      url = url + `&search=${search}`;
+    }
 
     dispatch({ type: GET_JOBS_BEGIN });
     try {
@@ -244,7 +261,7 @@ const AppProvider = ({ children }) => {
 
       const { jobs, totalJobs, numOfPages } = data;
 
-      console.log(jobs);
+      // console.log(jobs);
       dispatch({
         type: GET_JOBS_SUCCESS,
         payload: {
@@ -318,6 +335,10 @@ const AppProvider = ({ children }) => {
     // clearAlert();
   };
 
+  const clearfilter = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
+
   return (
     // All the children (App) will able to use VAlUE passed through
     <AppContext.Provider
@@ -336,6 +357,7 @@ const AppProvider = ({ children }) => {
         deleteJob,
         editJob,
         showStats,
+        clearfilter,
       }}
     >
       {children}
