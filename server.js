@@ -7,9 +7,16 @@ const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
 
+// for building front end applications
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import path from 'path';
+
+// for security
+
+import helmet from 'helmet';
+import xss from 'xss-clean';
+import mongoSanitize from 'express-mongo-sanitize';
 
 // make sure to use .js extension to be able to use module for ESModule
 // databse
@@ -23,7 +30,6 @@ import jobsRouter from './routes/jobsRoutes.js';
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import authorizationUser from './middleware/auth.js';
-import { dir } from 'console';
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
@@ -32,15 +38,15 @@ if (process.env.NODE_ENV !== 'production') {
 // body parser, reading data from body(incoming request) into req.body(in controller)
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//   // throw new Error('error');
-//   res.send('welcome');
-// });
+// helps secure express apps by setting various http headers
+app.use(helmet());
 
-// app.get('/api/v1', (req, res) => {
-//   // throw new Error('error');
-//   res.json({ msg: 'API' });
-// });
+// sanitize user input coming from POST body, GET queries, and url params
+// prevent cross site scripting attacks
+app.use(xss());
+
+// sanitizes user-supplied data to prevent MongoDB Operator Injection
+app.use(mongoSanitize());
 
 // serve static files for backend
 // serve as public access
