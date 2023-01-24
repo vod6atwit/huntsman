@@ -1,8 +1,10 @@
 import { FormRow, FormRowSelect } from '.';
 import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/SearchContainer';
+import { useState, useMemo, useEffect } from 'react';
 
 const SearchContainer = () => {
+  const [localSearch, setLocalSearch] = useState('');
   const {
     isLoading,
     search,
@@ -22,15 +24,47 @@ const SearchContainer = () => {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (isLoading) return;
+    // if (isLoading) return;
 
     handleChange({ name, value });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    // clear the local state
+    setLocalSearch('');
+    // clear global state
     clearfilter();
   };
+
+  const debounce = () => {
+    let timeoutID;
+
+    // only this return when useMemo call for the first time
+    return e => {
+      // update localSearch to display the value
+      setLocalSearch(e.target.value);
+
+      // clear previous timeOut if there is one
+      clearTimeout(timeoutID);
+
+      // the last timeOut will invoke the callback function to change the global state and rerender the jobsContainer
+      timeoutID = setTimeout(() => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        handleChange({ name, value });
+      }, 1000);
+    };
+  };
+
+  // run only 1 time to load the return function in debounce
+  const optimizedDebounce = useMemo(
+    () => debounce(),
+    // eslint-disable-next-line
+    []
+  );
 
   return (
     <Wrapper>
@@ -41,8 +75,8 @@ const SearchContainer = () => {
             type="text"
             // exact name in global state
             name="search"
-            value={search}
-            handleChange={handleSearch}
+            value={localSearch}
+            handleChange={optimizedDebounce}
           />
           <FormRowSelect
             labelText="Search By"
