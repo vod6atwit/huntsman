@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useReducer, useContext } from 'react';
 import axios from 'axios';
 
 import reducer from './reducer';
@@ -272,8 +272,8 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error.response);
-      // logoutUser()
+      // console.log(error.response);
+      logoutUser();
     }
   };
 
@@ -313,8 +313,8 @@ const AppProvider = ({ children }) => {
       // get new job array from the database to render for frontend
       getJobs();
     } catch (error) {
-      console.log(error.response);
-      // logoutUser()
+      // console.log(error.response);
+      logoutUser();
     }
   };
 
@@ -330,10 +330,10 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error.response);
-      // logoutUser();
+      // console.log(error.response);
+      logoutUser();
     }
-    // clearAlert();
+    clearAlert();
   };
 
   const clearfilter = () => {

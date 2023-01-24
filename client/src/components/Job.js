@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/Job';
 import JobInfo from './JobInfo';
-import { useState } from 'react';
 
 const Job = ({
   _id,

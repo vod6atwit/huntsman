@@ -1,5 +1,5 @@
 import { Landing, Register, Error, ProtectedRoute } from './pages';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
   AddJob,
   AllJob,
@@ -12,11 +12,6 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      {/* <nav>
-        <Link to="/">Dashboard</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/landing">Landing</Link>
-      </nav> */}
       <Routes>
         {/* <Route path="/" element={<Dashboard />} /> */}
 
@@ -31,6 +26,7 @@ function App() {
         >
           {/* related routes */}
           {/* index will reference to the home page */}
+          {/* child route's element */}
           <Route index element={<Stats />} />
           <Route path="all-jobs" element={<AllJob />} />
           <Route path="add-jobs" element={<AddJob />} />

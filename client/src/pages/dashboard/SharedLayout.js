@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Navbar, SmallSidebar, BigSidebar } from '../../components';
 import Wrapper from '../../assets/wrappers/SharedLayout';
 
@@ -11,6 +11,7 @@ const SharedLayout = () => {
         <div>
           <Navbar />
           <div className="dashboard-page">
+            {/* Renders the child route's element, if there is one. */}
             <Outlet />
           </div>
         </div>
