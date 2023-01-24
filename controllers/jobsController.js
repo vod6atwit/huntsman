@@ -22,7 +22,6 @@ const createJob = async (req, res) => {
 
 const getAllJobs = async (req, res) => {
   // for searching
-
   const { status, jobType, sort, search, searchBy } = req.query;
 
   const queryObject = {

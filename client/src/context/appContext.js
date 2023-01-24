@@ -28,6 +28,7 @@ import {
   GET_JOBS_SUCCESS,
   SET_EDIT_JOB,
   DELETE_JOB_BEGIN,
+  DELETE_JOB_ERROR,
   EDIT_JOB_BEGIN,
   EDIT_JOB_SUCCESS,
   EDIT_JOB_ERROR,
@@ -313,9 +314,16 @@ const AppProvider = ({ children }) => {
       // get new job array from the database to render for frontend
       getJobs();
     } catch (error) {
+      if (error.response.status !== 401) {
+        dispatch({
+          type: DELETE_JOB_ERROR,
+          payload: { msg: error.response.data.msg },
+        });
+      }
       // console.log(error.response);
-      logoutUser();
+      // logoutUser();
     }
+    clearAlert();
   };
 
   const showStats = async () => {

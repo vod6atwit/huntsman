@@ -13,8 +13,10 @@ const auth = async (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
 
+    const testUser = payload.userId === '63d01a8d7abbd99761c85898';
+
     // attach the user request object
-    req.user = { userId: payload.userId };
+    req.user = { userId: payload.userId, testUser };
     next();
   } catch (error) {
     throw new CustomAPIError('Authorization Invalid', StatusCodes.UNAUTHORIZED);
