@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer, useContext, useEffect } from 'react';
 import axios from 'axios';
 
 import reducer from './reducer';
@@ -36,12 +36,16 @@ import {
   SHOW_STATS_SUCCESS,
   CLEAR_FILTERS,
   CHANGE_PAGE,
+  GET_CURRENT_USER_BEGIN,
+  GET_CURRENT_USER_SUCCESS,
 } from './actions';
 
+/* using this get token, user, and location approach when store token, user, and location in localStorage and globalState when development */
+
 // reload data from local storage if exists
-const token = localStorage.getItem('token');
-const user = localStorage.getItem('user');
-const location = localStorage.getItem('location');
+// const token = localStorage.getItem('token');
+// const user = localStorage.getItem('user');
+// const location = localStorage.getItem('location');
 
 // global state values
 const initialState = {
@@ -50,10 +54,17 @@ const initialState = {
   showAlert: false,
   alertText: '',
   alertType: '',
-  user: user ? JSON.parse(user) : null,
-  token: token ? token : null,
-  userLocation: location || '',
   showSidebar: false,
+  user: null,
+  userLocation: '',
+
+  /* using this approach when store token, user, and location in localStorage and globalState when development */
+
+  // user: user ? JSON.parse(user) : null,
+  // token: token ? token : null,
+  // userLocation: location || '',
+  // jobLocation: location || '',
+  userLoading: true,
 
   // for job
   isEditing: false,
@@ -64,8 +75,8 @@ const initialState = {
   jobType: 'internship',
   statusOptions: ['interview', 'declined', 'pending'],
   status: 'pending',
-  jobLocation: location || '',
   jobs: [],
+  jobLocation: '',
   totalJobs: 0,
   numOfPages: 1,
   page: 1,
@@ -95,16 +106,19 @@ const AppProvider = ({ children }) => {
     baseURL: '/api/v1',
   });
 
+  /* using this approach when store token localStorage and globalState when development to sending back the token every request to verify in the server */
+
   // axios configuration request
-  authFetch.interceptors.request.use(
-    config => {
-      config.headers['Authorization'] = `Bearer ${state.token}`;
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    }
-  );
+  // authFetch.interceptors.request.use(
+  //   config => {
+  //     config.headers['Authorization'] = `Bearer ${state.token}`;
+  //     return config;
+  //   },
+  //   error => {
+  //     return Promise.reject(error);
+  //   }
+  // );
+
   // axios configuration response
   authFetch.interceptors.response.use(
     response => {
@@ -112,6 +126,7 @@ const AppProvider = ({ children }) => {
     },
     error => {
       // console.log(error.response);
+      // log the user out if unauthorized
       if (error.response.status === 401) {
         logoutUser();
       }
@@ -133,17 +148,19 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  const addUserToLocalStorage = ({ user, token, location }) => {
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('token', token);
-    localStorage.setItem('location', location);
-  };
+  /* using this approach when store token, user, and location in localStorage and globalState when development */
 
-  const removeUserFromLocalStorage = ({ user, token, location }) => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    localStorage.removeItem('location');
-  };
+  // const addUserToLocalStorage = ({ user, token, location }) => {
+  //   localStorage.setItem('user', JSON.stringify(user));
+  //   localStorage.setItem('token', token);
+  //   localStorage.setItem('location', location);
+  // };
+
+  // const removeUserFromLocalStorage = ({ user, token, location }) => {
+  //   localStorage.removeItem('user');
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('location');
+  // };
 
   // setup parameters as a object to not worry about ordering
   const setupUser = async ({ currentUser, endPoint, alertText }) => {
@@ -155,20 +172,27 @@ const AppProvider = ({ children }) => {
         currentUser
       );
 
-      const { user, token, location } = data;
+      /* using this approach if server sending back reponse with token */
+      // const { user, token, location } = data;
+
+      const { user, location } = data;
+
       dispatch({
         type: SETUP_USER_SUCCESS,
         // pass to the reducer.js
         payload: {
           user,
-          token,
           location,
           alertText,
+
+          /* using this approach if server sending back reponse with token */
+          // token,
         },
       });
 
+      /* Using this approach when enable LocalStorage function */
       // persist data to LocalStorage
-      addUserToLocalStorage({ user, token, location });
+      // addUserToLocalStorage({ user, token, location });
     } catch (error) {
       dispatch({
         type: SETUP_USER_ERROR,
@@ -182,9 +206,11 @@ const AppProvider = ({ children }) => {
     dispatch({ type: TOGGLE_SIDEBAR });
   };
 
-  const logoutUser = () => {
+  const logoutUser = async () => {
+    await authFetch.get('/auth/logout');
     dispatch({ type: LOGOUT_USER });
-    removeUserFromLocalStorage({ user, token, location });
+    /* Using this approach when enable LocalStorage function */
+    // removeUserFromLocalStorage({ user, token, location });
   };
 
   const updateUser = async currentUser => {
@@ -192,16 +218,25 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch.patch('/auth/updateUser', currentUser);
 
-      const { user, token, location } = data;
+      /* using this approach if server sending back reponse with token */
+      // const { user, token, location } = data;
+      const { user, location } = data;
 
       dispatch({
         type: UPDATE_USER_SUCCESS,
         // global State object
-        payload: { user, token, location },
+        payload: {
+          user,
+          location,
+
+          /* using this approach if server sending back reponse with token */
+          // token,
+        },
       });
 
-      // local storage
-      addUserToLocalStorage({ user, token, location });
+      /* Using this approach when enable LocalStorage function */
+      // persist data to LocalStorage
+      // addUserToLocalStorage({ user, token, location });
     } catch (error) {
       if (error.response.status !== 401) {
         dispatch({
@@ -352,6 +387,29 @@ const AppProvider = ({ children }) => {
     dispatch({ type: CHANGE_PAGE, payload: { page } });
   };
 
+  const getCurrentUser = async () => {
+    dispatch({ type: GET_CURRENT_USER_BEGIN });
+    try {
+      // if token saved in cookie is still valid, this will pass through
+      const { data } = await authFetch.get('/auth/getCurrentUser');
+      const { user, location } = data;
+
+      dispatch({
+        type: GET_CURRENT_USER_SUCCESS,
+        payload: { user, location },
+      });
+    } catch (error) {
+      // console.log(error.response);
+      if (error.response.status === 401) return;
+      logoutUser();
+    }
+  };
+
+  useEffect(() => {
+    getCurrentUser();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     // All the children (App) will able to use VAlUE passed through
     <AppContext.Provider
@@ -372,8 +430,10 @@ const AppProvider = ({ children }) => {
         showStats,
         clearfilter,
         changePage,
+        getCurrentUser,
       }}
     >
+      {/* <App/> */}
       {children}
     </AppContext.Provider>
   );

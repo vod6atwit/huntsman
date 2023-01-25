@@ -1,6 +1,7 @@
 import User from '../models/user.js';
 import { CustomAPIError } from '../errors/index.js';
 import { StatusCodes } from 'http-status-codes';
+import attachCookie from '../utils/attachCookie.js';
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -27,6 +28,9 @@ const register = async (req, res) => {
   // requests from frontend need to have token to be able to complete the requests
   const token = user.createJWT();
 
+  // create and send cookie with response
+  attachCookie({ res, token });
+
   // send user infos (not include password) and token back to frontend
   res.status(StatusCodes.CREATED).json({
     user: {
@@ -35,7 +39,8 @@ const register = async (req, res) => {
       location: user.location,
       lastName: user.lastName,
     },
-    token,
+    /* Not sending token back with response because we are using token in cookie */
+    // token,
     location: user.location,
   });
 };
@@ -66,6 +71,9 @@ const login = async (req, res) => {
   // created new token every time user is logged in ( prevent expired token )
   const token = await user.createJWT();
 
+  // create and send cookie with response
+  attachCookie({ res, token });
+
   // send user infos (not include password) and token back to frontend
   res.status(StatusCodes.OK).json({
     user: {
@@ -74,7 +82,8 @@ const login = async (req, res) => {
       location: user.location,
       lastName: user.lastName,
     },
-    token,
+    /* Not sending token back with response because we are using token in cookie */
+    // token,
     location: user.location,
   });
 };
@@ -101,11 +110,33 @@ const updateUser = async (req, res) => {
 
   const token = user.createJWT();
 
+  // create and send cookie with response
+  attachCookie({ res, token });
+
   res.status(StatusCodes.OK).json({
     user,
-    token,
+    /* Not sending token back with response because we are using token in cookie */
+    // token,
     location: user.location,
   });
 };
 
-export { register, login, updateUser };
+const getCurrentUser = async (req, res) => {
+  const user = await User.findOne({ _id: req.user.userId });
+
+  res.status(StatusCodes.OK).json({
+    user,
+    location: user.location,
+  });
+};
+
+const logout = async (req, res) => {
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+
+  res.status(StatusCodes.OK).json({ msg: 'user logged out' });
+};
+
+export { register, login, updateUser, getCurrentUser, logout };

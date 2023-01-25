@@ -31,6 +31,9 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import authorizationUser from './middleware/auth.js';
 
+// for parse cookies
+import cookieParser from 'cookie-parser';
+
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
 }
@@ -47,6 +50,9 @@ app.use(xss());
 
 // sanitizes user-supplied data to prevent MongoDB Operator Injection
 app.use(mongoSanitize());
+
+// for parse cookies coming back from the frontend
+app.use(cookieParser());
 
 // serve static files for backend
 // serve as public access
