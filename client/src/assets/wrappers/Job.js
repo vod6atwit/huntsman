@@ -80,7 +80,7 @@ const Wrapper = styled.article`
     height: 30px;
   }
   footer {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
   .edit-btn,
   .delete-btn {

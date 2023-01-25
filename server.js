@@ -65,7 +65,7 @@ app.use('/api/v1/jobs', authorizationUser, jobsRouter);
 
 // access to this route for frontend after trying access to 2 routes above
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '.client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 // only run this line if app not find any routes from above

@@ -71,6 +71,7 @@ const initialState = {
   editJobId: '',
   position: '',
   company: '',
+  postUrl: '',
   jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
   jobType: 'internship',
   statusOptions: ['interview', 'declined', 'pending'],
@@ -139,7 +140,7 @@ const AppProvider = ({ children }) => {
     setTimeout(() => {
       // always pass in the object for dispatch
       dispatch({ type: CLEAR_ALERT });
-    }, 4000);
+    }, 2000);
   };
 
   const displayAlert = () => {
@@ -260,13 +261,15 @@ const AppProvider = ({ children }) => {
   const createJob = async () => {
     dispatch({ type: CREATE_JOB_BEGIN });
     try {
-      const { position, company, jobLocation, jobType, status } = state;
+      const { position, company, jobLocation, jobType, status, postUrl } =
+        state;
       await authFetch.post('/jobs', {
         position,
         company,
         jobLocation,
         jobType,
         status,
+        postUrl,
       });
 
       dispatch({ type: CREATE_JOB_SUCCESS });
@@ -320,13 +323,15 @@ const AppProvider = ({ children }) => {
   const editJob = async () => {
     dispatch({ type: EDIT_JOB_BEGIN });
     try {
-      const { position, company, jobLocation, jobType, status } = state;
+      const { position, company, jobLocation, jobType, status, postUrl } =
+        state;
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         company,
         position,
         jobLocation,
         jobType,
         status,
+        postUrl,
       });
       dispatch({ type: EDIT_JOB_SUCCESS });
       dispatch({ type: CLEAR_VALUES });

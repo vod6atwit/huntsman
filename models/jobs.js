@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import validator from 'validator';
 
 const JobSchema = new mongoose.Schema(
   {
@@ -27,6 +28,19 @@ const JobSchema = new mongoose.Schema(
       type: 'string',
       default: 'my city',
       required: true,
+    },
+    postUrl: {
+      type: 'string',
+      validate: {
+        validator: value =>
+          validator.isURL(value, {
+            protocols: ['http', 'https', 'ftp'],
+            require_tld: true,
+            require_protocol: true,
+            require_host: true,
+          }),
+        message: 'Must be a Valid URL',
+      },
     },
     createdBy: {
       type: mongoose.Types.ObjectId,

@@ -9,6 +9,7 @@ const AddJob = () => {
     displayAlert,
     position,
     company,
+    postUrl,
     jobLocation,
     jobType,
     jobTypeOptions,
@@ -58,6 +59,15 @@ const AddJob = () => {
             type="text"
             handleChange={handleJobInput}
           />
+
+          <FormRow
+            name="postUrl"
+            value={postUrl}
+            type="url"
+            handleChange={handleJobInput}
+            labelText="post URL"
+          />
+
           <FormRow
             name="jobLocation"
             value={jobLocation}
