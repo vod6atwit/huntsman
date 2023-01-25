@@ -27,14 +27,14 @@ const Wrapper = styled.section`
   .form-center button {
     align-self: end;
     height: 35px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
   }
   .btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
     align-self: flex-end;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
     button {
       height: 35px;
     }
@@ -56,7 +56,7 @@ const Wrapper = styled.section`
       column-gap: 1rem;
     }
     .btn-container {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
   }
   @media (min-width: 1120px) {
