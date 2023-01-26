@@ -19,10 +19,12 @@ const Landing = () => {
               job <span>huntsman</span> app
             </h1>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum
-              ducimus repellendus hic, temporibus iusto minima at officia a
-              placeat quam. Iure molestias eius commodi velit odio? Error,
-              labore distinctio. Eius.
+              Job Huntsman App is designed to help job seekers save their dream
+              jobs application in one convenient location. The app features a
+              user-friendly interface that allows users to search, add, and edit
+              all saved job applications by position, location, company, status
+              and job type. With our Job Huntsman App, applying and keeping
+              track of your dream job has never been easier.
             </p>
             <Link to="/register" className="btn btn-hero">
               Login/Register
