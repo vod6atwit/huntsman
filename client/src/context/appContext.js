@@ -81,6 +81,7 @@ const initialState = {
   totalJobs: 0,
   numOfPages: 1,
   page: 1,
+  description: '',
 
   // for stats
   stats: {},
@@ -261,8 +262,15 @@ const AppProvider = ({ children }) => {
   const createJob = async () => {
     dispatch({ type: CREATE_JOB_BEGIN });
     try {
-      const { position, company, jobLocation, jobType, status, postUrl } =
-        state;
+      const {
+        position,
+        company,
+        jobLocation,
+        jobType,
+        status,
+        postUrl,
+        description,
+      } = state;
       await authFetch.post('/jobs', {
         position,
         company,
@@ -270,6 +278,7 @@ const AppProvider = ({ children }) => {
         jobType,
         status,
         postUrl,
+        description,
       });
 
       dispatch({ type: CREATE_JOB_SUCCESS });
@@ -323,8 +332,15 @@ const AppProvider = ({ children }) => {
   const editJob = async () => {
     dispatch({ type: EDIT_JOB_BEGIN });
     try {
-      const { position, company, jobLocation, jobType, status, postUrl } =
-        state;
+      const {
+        position,
+        company,
+        jobLocation,
+        jobType,
+        status,
+        postUrl,
+        description,
+      } = state;
       await authFetch.patch(`/jobs/${state.editJobId}`, {
         company,
         position,
@@ -332,6 +348,7 @@ const AppProvider = ({ children }) => {
         jobType,
         status,
         postUrl,
+        description,
       });
       dispatch({ type: EDIT_JOB_SUCCESS });
       dispatch({ type: CLEAR_VALUES });

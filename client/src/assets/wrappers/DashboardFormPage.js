@@ -27,14 +27,18 @@ const Wrapper = styled.section`
   .form-center button {
     align-self: end;
     height: 35px;
-    /* margin-top: 1rem; */
+    margin-top: 1rem;
+  }
+
+  .form-center a {
+    margin-top: 1rem;
   }
   .btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
-    align-self: flex-end;
-    margin-top: 2.5rem;
+    /* align-self: flex-end; */
+    margin-top: 1rem;
     button {
       height: 35px;
     }
@@ -56,16 +60,17 @@ const Wrapper = styled.section`
       column-gap: 1rem;
     }
     .btn-container {
-      margin-top: 2rem;
+      display: block;
+      margin-top: 0;
     }
   }
   @media (min-width: 1120px) {
     .form-center {
       grid-template-columns: 1fr 1fr 1fr;
     }
-    .form-center button {
+    /* .form-center button {
       margin-top: 0;
-    }
+    } */
   }
 `;
 

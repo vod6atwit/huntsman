@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
-import { FormRow, Alert, FormRowSelect } from '../../components';
+import { FormRow, Alert, FormRowSelect, FormText } from '../../components';
 import { useAppContext } from '../../context/appContext';
 
 const EditJob = () => {
@@ -20,6 +20,7 @@ const EditJob = () => {
     handleChange,
     clearValues,
     editJob,
+    description,
   } = useAppContext();
 
   const handleSubmit = e => {
@@ -94,6 +95,13 @@ const EditJob = () => {
             value={status}
             list={statusOptions}
             handleChange={handleJobInput}
+          />
+
+          <FormText
+            name="description"
+            value={description}
+            handleChange={handleJobInput}
+            labelText="description"
           />
 
           <div className="btn-container">

@@ -29,6 +29,9 @@ const JobSchema = new mongoose.Schema(
       default: 'my city',
       required: true,
     },
+    description: {
+      type: 'string',
+    },
     postUrl: {
       type: 'string',
       validate: {
